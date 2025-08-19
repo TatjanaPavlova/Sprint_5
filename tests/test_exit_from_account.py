@@ -1,0 +1,31 @@
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators import Locators
+from curl import *
+
+
+class TestExitFromAccount:
+
+    def test_exit_via_exit_button(self, start_from_login_page):
+
+        driver = start_from_login_page
+        wait = WebDriverWait(driver, 10)
+
+        # подождать загрузки главной страницы
+        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+
+        # нажать на кнопку "Личный кабинет"
+        driver.find_element(*Locators.personal_account_button).click()
+    
+        # подождать загрузки кнопки "Выход" и нажать на неё
+        wait.until(EC.visibility_of_element_located(Locators.exit_button))
+        driver.find_element(*Locators.exit_button).click()
+
+        # подождать перехода на страницу авторизации
+        wait.until(EC.visibility_of_element_located(Locators.entrance_label))
+
+        # проверить, что мы на странице авторизации
+        assert driver.current_url == login_page
+
+  

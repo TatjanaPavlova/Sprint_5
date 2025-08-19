@@ -34,6 +34,8 @@ def start_from_login_page(driver):  # Вход с главной страниц�
     driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
     driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
 
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.create_burger_title))
+
     return driver
 
 

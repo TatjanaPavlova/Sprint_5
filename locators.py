@@ -39,4 +39,11 @@ class Locators:
     # надпись "Соберите бургер" на главной странице
     create_burger_title = (By.XPATH, "//h1[contains(text(), 'Соберите бургер')]")
 
+    # кнопка "Личный кабинет" на главной странице
+    personal_account_button = (By.CSS_SELECTOR, "a[href='/account']")
+
+    # кнопка "Выход" в личном кабинете
+    exit_button = (By.XPATH, "//button[contains(text(), 'Выход')]")
+
+
 
