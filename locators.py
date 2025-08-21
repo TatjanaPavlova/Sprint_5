@@ -45,5 +45,11 @@ class Locators:
     # кнопка "Выход" в личном кабинете
     exit_button = (By.XPATH, "//button[contains(text(), 'Выход')]")
 
+    # надпись "Конструктор" в шапке сайта
+    constructor_label = (By.XPATH, "//p[contains(text(), 'Конструктор')]")
+
+    # лого Stellar Burgers в шапке сайта
+    stellar_burgers_logo = (By.CSS_SELECTOR, '.AppHeader_header__logo__2D0X2 a')
+
 
 

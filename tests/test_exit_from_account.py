@@ -12,9 +12,6 @@ class TestExitFromAccount:
         driver = start_from_login_page
         wait = WebDriverWait(driver, 10)
 
-        # подождать загрузки главной страницы
-        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
-
         # нажать на кнопку "Личный кабинет"
         driver.find_element(*Locators.personal_account_button).click()
     
