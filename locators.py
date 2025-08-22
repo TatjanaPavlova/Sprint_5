@@ -51,5 +51,25 @@ class Locators:
     # лого Stellar Burgers в шапке сайта
     stellar_burgers_logo = (By.CSS_SELECTOR, '.AppHeader_header__logo__2D0X2 a')
 
+    # вкладка "Булки"
+    buns_tab = (By.XPATH, '//span[text()="Булки"]/parent::div')
+
+    # вкладка "Соусы"
+    sauces_tab = (By.XPATH, '//span[text()="Соусы"]/parent::div')
+
+    # вкладка "Начинки"
+    fillings_tab = (By.XPATH, '//span[text()="Начинки"]/parent::div')
+
+    # активная вкладка "Булки"
+    active_buns_tab = (By.XPATH, '//span[text()="Булки"]/parent::div[contains(@class, "tab_tab_type_current__2BEPc")]')
+
+    # активная вкладка "Соусы"
+    active_sauces_tab = (By.XPATH, '//span[text()="Соусы"]/parent::div[contains(@class, "tab_tab_type_current__2BEPc")]')
+
+    # активная вкладка "Начинки"
+    active_fillings_tab = (By.XPATH, '//span[text()="Начинки"]/parent::div[contains(@class, "tab_tab_type_current__2BEPc")]')
+
+
+
 
 
