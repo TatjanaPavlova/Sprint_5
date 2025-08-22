@@ -45,6 +45,9 @@ class Locators:
     # кнопка "Личный кабинет" на главной странице
     personal_account_button = (By.CSS_SELECTOR, "a[href='/account']")
 
+    # кнопка "Профиль" в личном кабинете
+    profile_button = (By.CSS_SELECTOR, "a[href='/account/profile']")
+
     # кнопка "Выход" в личном кабинете
     exit_button = (By.XPATH, "//button[contains(text(), 'Выход')]")
 
