@@ -8,9 +8,7 @@ from curl import *
 
 class TestNewUserRegistration:
 
-    def test_successful_registration(self, driver):
-
-        wait = WebDriverWait(driver, 10)
+    def test_successful_registration(self, driver, wait):
 
         # открыть страницу регистрации
         driver.get(login_page)
@@ -33,10 +31,11 @@ class TestNewUserRegistration:
         
         # проверить, что мы на главной странице
         wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+        wait.until(EC.url_to_be(main_page))
         assert driver.current_url == main_page
 
 
-    def test_registration_with_short_password_fails(self, driver):
+    def test_registration_with_short_password_fails(self, driver, wait):
 
         # зайти на страницу регистрации
         driver.get(login_page)

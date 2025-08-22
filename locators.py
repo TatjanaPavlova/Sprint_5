@@ -24,8 +24,11 @@ class Locators:
     # кнопка "Восстановить пароль"
     password_recovery_button = (By.CSS_SELECTOR, "a[href='/forgot-password']")
 
-    # кнопка "Войти" на странице восстановления пароля
-    entrance_button_on_recovery_page = (By.CSS_SELECTOR, "a[href='/login']")
+    # надпись "Восстановление пароля"
+    password_recovery_label = (By.XPATH, "//h2[text()='Восстановление пароля']")
+
+    # кнопка "Войти" на странице регистрации и восстановления пароля
+    login_button_registration_or_recovery = (By.CSS_SELECTOR, "a[href='/login']")
 
     # поле "Имя" на странице регистрации
     name_field = (By.XPATH, "//label[contains(text(), 'Имя')]/following::input[1]")

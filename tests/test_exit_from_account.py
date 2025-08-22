@@ -7,10 +7,9 @@ from curl import *
 
 class TestExitFromAccount:
 
-    def test_exit_via_exit_button(self, start_from_login_page):
+    def test_exit_via_exit_button(self, start_from_login_page, wait):
 
         driver = start_from_login_page
-        wait = WebDriverWait(driver, 10)
 
         # нажать на кнопку "Личный кабинет"
         driver.find_element(*Locators.personal_account_button).click()
@@ -21,6 +20,9 @@ class TestExitFromAccount:
 
         # подождать перехода на страницу авторизации
         wait.until(EC.visibility_of_element_located(Locators.entrance_label))
+
+        # ждём, что URL изменится на login_page
+        wait.until(EC.url_to_be(login_page))
 
         # проверить, что мы на странице авторизации
         assert driver.current_url == login_page

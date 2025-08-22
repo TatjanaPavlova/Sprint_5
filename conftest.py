@@ -40,21 +40,6 @@ def start_from_login_page(driver):  # Вход с главной страниц�
 
 
 @pytest.fixture
-def start_from_recovery_page(driver): # Вход со страницы восстановления пароля
-    driver.get(login_page)
-
-    # Кликнуть на кнопку "Восстановить пароль"
-    driver.find_element(*Locators.password_recovery_button).click()
-
-    # Подождать загрузки кнопки "Войти"
-    WebDriverWait(driver, 3).until(EC.visibility_of_element_located(Locators.entrance_button_on_recovery_page))
-
-    # Нажать на кнопку "Войти"
-    driver.find_element(*Locators.entrance_button_on_recovery_page).click()
-
-    # Пройти авторизацию
-    driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
-    driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
-    driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
-    
-    return driver
+def wait(driver):
+    """Фикстура для явных ожиданий"""
+    return WebDriverWait(driver, 10)
