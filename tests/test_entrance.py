@@ -1,8 +1,8 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from locators import Locators
 from curl import *
+from data import Credentials
 
 
 class TestCheckEntrance:
@@ -18,11 +18,15 @@ class TestCheckEntrance:
         # подождать загрузки надписи "Вход"
         wait.until(EC.visibility_of_element_located(Locators.entrance_label))
 
-        # ждём, что URL изменится на login_page
-        wait.until(EC.url_to_be(login_page))
+        # выполнить вход
+        driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
+        driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
+        driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
 
-        # проверить, что мы на странице авторизации
-        assert driver.current_url == login_page
+        # проверить, что мы на главной странице
+        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+        wait.until(EC.url_to_be(main_page))
+        assert driver.current_url == main_page
 
 
     def test_login_via_personal_cabinet_button(self, driver, wait):
@@ -36,11 +40,15 @@ class TestCheckEntrance:
         # подождать загрузки надписи "Вход"
         wait.until(EC.visibility_of_element_located(Locators.entrance_label))
 
-        # ждём, что URL изменится на login_page
-        wait.until(EC.url_to_be(login_page))
+        # выполнить вход
+        driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
+        driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
+        driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
 
-        # проверить, что мы на странице авторизации
-        assert driver.current_url == login_page
+        # проверить, что мы на главной странице
+        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+        wait.until(EC.url_to_be(main_page))
+        assert driver.current_url == main_page
 
 
     def test_login_via_registration_form_login_button(self, driver, wait):
@@ -54,11 +62,15 @@ class TestCheckEntrance:
         # подождать загрузки надписи "Вход"
         wait.until(EC.visibility_of_element_located(Locators.entrance_label))
 
-        # ждём, что URL изменится на login_page
-        wait.until(EC.url_to_be(login_page))
+        # выполнить вход
+        driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
+        driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
+        driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
 
-        # проверить, что мы на странице авторизации
-        assert driver.current_url == login_page
+        # проверить, что мы на главной странице
+        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+        wait.until(EC.url_to_be(main_page))
+        assert driver.current_url == main_page
 
 
     def test_login_via_password_reset_form_login_button(self, driver, wait):
@@ -78,8 +90,12 @@ class TestCheckEntrance:
         # подождать загрузки надписи "Вход"
         wait.until(EC.visibility_of_element_located(Locators.entrance_label))
 
-        # ждём, что URL изменится на login_page
-        wait.until(EC.url_to_be(login_page))
+        # выполнить вход
+        driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
+        driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
+        driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
 
-        # проверить, что мы на странице авторизации
-        assert driver.current_url == login_page
+        # проверить, что мы на главной странице
+        wait.until(EC.visibility_of_element_located(Locators.create_burger_title))
+        wait.until(EC.url_to_be(main_page))
+        assert driver.current_url == main_page

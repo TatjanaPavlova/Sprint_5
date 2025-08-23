@@ -1,4 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from helper import *
@@ -49,5 +48,5 @@ class TestNewUserRegistration:
         driver.find_element(*Locators.complete_registration_button).click()
 
         # проверить, что появилась надпись "Некорректный пароль"
-        error_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.incorrect_password_label))
+        error_element = wait.until(EC.visibility_of_element_located(Locators.incorrect_password_label))
         assert "Некорректный пароль" in error_element.text

@@ -16,15 +16,6 @@ def driver():
     driver.quit()
 
 
-@pytest.fixture
-def login(driver):
-    driver.find_element(*Locators.email_field).send_keys(Credentials.email)   # Ввести email
-    driver.find_element(*Locators.password_field).send_keys(Credentials.password)  # Ввести пароль
-    driver.find_element(*Locators.entrance_button).click()  # Нажать на кнопку "Войти"
-
-    return driver
-
-
 @pytest.fixture 
 def start_from_login_page(driver):  # Вход с главной страницы
     driver.get(main_page)
