@@ -27,7 +27,5 @@ class TestGoToConstructorSections:
         tab_element = wait.until(EC.element_to_be_clickable(tab_locator))
         tab_element.click()
 
-        # ждём, пока вкладка станет активной
-        active_tab_element = wait.until(EC.presence_of_element_located(active_tab_locator))
-
-        assert active_tab_element is not None
+        # проверяем, что вкладка стала активной
+        assert wait.until(EC.visibility_of_element_located(active_tab_locator))
