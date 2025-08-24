@@ -7,10 +7,10 @@ class Locators:
     log_in_to_account_button = (By.XPATH, "//button[contains(text(), 'Войти в аккаунт')]")
     
     # поле "Email"
-    email_field = (By.XPATH, "//label[contains(text(), 'Email')]/following::input[1]")
+    email_field = (By.XPATH, "//div[label[contains(text(), 'Email')]]//input")
 
     # поле "Пароль"
-    password_field = (By.XPATH, "//label[contains(text(), 'Пароль')]/following::input[1]")
+    password_field = (By.XPATH, "//div[label[contains(text(), 'Пароль')]]//input")
 
     # надпись "Вход"
     entrance_label = (By.XPATH, "//h2[text()='Вход']")
@@ -31,7 +31,7 @@ class Locators:
     login_button_registration_or_recovery = (By.CSS_SELECTOR, "a[href='/login']")
 
     # поле "Имя" на странице регистрации
-    name_field = (By.XPATH, "//label[contains(text(), 'Имя')]/following::input[1]")
+    name_field = (By.XPATH, "//div[label[contains(text(), 'Имя')]]//input")
 
     # кнопка "Зарегистрироваться" на странице регистрации
     complete_registration_button = (By.XPATH, "//button[contains(text(), 'Зарегистрироваться')]")
